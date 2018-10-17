@@ -1,6 +1,4 @@
-# tsuru-sample
-
-## build and run the project
+### build and run the project
 
 ```sh
 stack build
@@ -9,7 +7,7 @@ stack exec --- printQPs data.pcap > out
 stack exec --- printQPs -r data.pcap > r.out
 ```
 
-## how it works
+### how it works
 
 We read the pcap file with the help of the pcap package. Market quotes are read from bytestrings
 and parsed into QuotePacket objects when received. Corresponding packet and accept times are
@@ -25,11 +23,12 @@ relying on append and partition. Thus, pending quotes are sorted then output.
 we only output pending quotes strictly after B has a chance to arrive,<br>
 after receiving some Pn st. Qn > Qa + maxDelay, there can be no Qb < Qa<br>
 
-
->   Qa=Pa
->   v
->  0-------------max
->  Qb            Pb
+```ascii
+    Qa=Pa
+    v
+   0-------------max
+   Qb            Pb
+```
 
 ```pseudocode
 until EOF
@@ -40,7 +39,7 @@ EOF reached
   toSortThenPrint := cached
 ```
 
-## Dependencies
+### Dependencies
 
 - base
 - bytestring
