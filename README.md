@@ -1,9 +1,8 @@
-### build and run the project
+### Build and run the project
 
 ```sh
 stack build
 time stack exec -- printQPs data.pcap > out
-  or
 time stack exec -- printQPs -r data.pcap > r.out
 ```
 > real    0m0.301s<br>
@@ -14,7 +13,7 @@ time stack exec -- printQPs -r data.pcap > r.out
 > user    0m2.159s<br>
 > sys     0m0.770s<br>
 
-### description
+### How it works
 
 We read the pcap file with the help of the pcap package. Market quotes are read from bytestrings
 and parsed into QuotePacket objects when received. Corresponding packet and accept times are
@@ -45,13 +44,3 @@ until EOF
 EOF reached
   toSortThenPrint := cached
 ```
-
-### Dependencies
-
-- base
-- bytestring
-- containers
-- optparse-applicative
-- pcap
-- time
-- tz
