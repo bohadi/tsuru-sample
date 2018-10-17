@@ -2,9 +2,9 @@
 
 ```sh
 stack build
-stack exec --- printQPs data.pcap > out
+stack exec -- printQPs data.pcap > out
   or
-stack exec --- printQPs -r data.pcap > r.out
+stack exec -- printQPs -r data.pcap > r.out
 ```
 
 ### how it works
