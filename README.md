@@ -6,15 +6,15 @@ time stack exec -- printQPs data.pcap > out
   or
 time stack exec -- printQPs -r data.pcap > r.out
 ```
-> real    0m0.301s
-> user    0m0.331s
-> sys     0m0.069s
+> real    0m0.301s<br>
+> user    0m0.331s<br>
+> sys     0m0.069s<br>
 
-> real    0m1.648s
-> user    0m2.159s
-> sys     0m0.770s
+> real    0m1.648s<br>
+> user    0m2.159s<br>
+> sys     0m0.770s<br>
 
-### how it works
+### description
 
 We read the pcap file with the help of the pcap package. Market quotes are read from bytestrings
 and parsed into QuotePacket objects when received. Corresponding packet and accept times are
