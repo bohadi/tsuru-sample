@@ -2,10 +2,17 @@
 
 ```sh
 stack build
-stack exec -- printQPs data.pcap > out
+time stack exec -- printQPs data.pcap > out
   or
-stack exec -- printQPs -r data.pcap > r.out
+time stack exec -- printQPs -r data.pcap > r.out
 ```
+> real    0m0.301s
+> user    0m0.331s
+> sys     0m0.069s
+
+> real    0m1.648s
+> user    0m2.159s
+> sys     0m0.770s
 
 ### how it works
 
