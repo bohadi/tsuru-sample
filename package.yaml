@@ -1,0 +1,32 @@
+name:                tsuru-sample
+description:         Code sample for Tsuru Capital
+version:             0.1.0.0
+github:              "bohadi/tsuru-sample"
+maintainer:          "bohadi@protonmail.com"
+
+extra-source-files:
+- README.md
+
+dependencies:
+- base >= 4.7 && < 5
+- bytestring
+- containers
+- optparse-applicative
+- pcap
+- sorted-list
+- time
+- tz
+
+library:
+  source-dirs: src
+
+executables:
+  printQPs:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - tsuru-sample
