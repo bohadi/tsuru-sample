@@ -73,7 +73,7 @@ putPacket qp =
   let putOffer (Offer (q,p)) = BC.putStr $ B.concat [" ", q, "@", p]
   in do
     BC.putStr $ B.concat [packetTime qp, " ", acceptTime qp, " ", issueCode qp]
-    mapM_ putOffer $ (reverse $ bids qp) <> (asks qp)
+    mapM_ putOffer $ (reverse $ bids qp) <> asks qp
     putStrLn ""
 
 qPayload :: B.ByteString -> B.ByteString
@@ -94,7 +94,7 @@ reorderedPrint :: FilePath -> IO ()
 reorderedPrint f = P.openOffline f >>= viaSeq S.Empty
   where
     sortAndPrint :: Cache -> IO ()
-    sortAndPrint cache = mapM_ (putPacket . snd) $ S.sortOn (\(t,_) -> t) cache
+    sortAndPrint cache = mapM_ (putPacket . snd) $ S.sortOn fst cache
 
     viaSeq :: Cache -> P.PcapHandle -> IO ()
     viaSeq cache h = do
@@ -107,5 +107,5 @@ reorderedPrint f = P.openOffline f >>= viaSeq S.Empty
                     where qp = parseQuote hdr qpl
                           qt = toCentiseconds $ acceptTime qp
                           pt = toCentiseconds $ packetTime qp
-                          thresh = (\c -> fst c < pt - maxDelayCS)
+                          thresh c = fst c < (pt - maxDelayCS)
                           (pending, cache') = S.partition thresh cache
