@@ -5,14 +5,15 @@ stack build
 time stack exec -- printQPs data.pcap > out
 time stack exec -- printQPs -r data.pcap > r.out
 ```
-> real    0m0.301s<br>
-> user    0m0.331s<br>
-> sys     0m0.069s<br>
 
-> real    0m1.648s<br>
-> user    0m2.159s<br>
-> sys     0m0.770s<br>
+> real    0m0.653s<br>
+> user    0m0.708s<br>
+> sys     0m0.464s<br>
 
+> real    0m0.564s<br>
+> user    0m0.671s<br>
+> sys     0m0.193s<br>
+ 
 ### How it works
 
 We read the pcap file with the help of the pcap package. Market quotes are read from bytestrings
@@ -44,3 +45,4 @@ until EOF
 EOF reached
   toSortThenPrint := cached
 ```
+We can also optimize for batch processing, outputting every maxDelay seconds only.

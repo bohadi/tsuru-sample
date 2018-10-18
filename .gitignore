@@ -1,3 +1,5 @@
 .stack-work/
 tsuru-sample.cabal
-*~
+*.pcap
+out
+r.out
