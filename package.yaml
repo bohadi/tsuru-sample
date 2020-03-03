@@ -2,7 +2,7 @@ name:                tsuru-sample
 description:         Code sample for Tsuru Capital
 version:             0.1.0.0
 github:              "bohadi/tsuru-sample"
-maintainer:          "bohadi@protonmail.com"
+maintainer:          
 
 extra-source-files:
 - README.md
